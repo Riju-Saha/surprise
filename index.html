@@ -7,15 +7,17 @@
     <title>Surprise</title>
     <style>
         :root {
-            --bg-dark: radial-gradient(circle, #4a0000 0%, #000000 100%);
-            --bg-festive: #ffe5ec;
-            --accent-pink: #ff4d6d;
+            --bg-dark: linear-gradient(135deg, #a2d2ff 0%, #ffafcc 100%);
+            --bg-festive: #f0faff;
+            --accent-pink: #ff8fab;
+            --accent-blue: #00b4d8;
+            --text-color: #4a4a4a;
         }
 
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: var(--bg-dark);
             color: white;
             display: flex;
@@ -33,14 +35,15 @@
             top: 15px;
             right: 15px;
             background: rgba(255, 255, 255, 0.9);
-            color: var(--accent-pink);
+            color: var(--accent-blue);
             padding: 8px 20px;
             border-radius: 50px;
-            border: 2px solid #000;
+            border: 2px solid var(--accent-pink);
             font-size: clamp(1.2rem, 4vw, 1.8rem);
             font-weight: bold;
             display: none;
             z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         #click-hint {
@@ -73,7 +76,6 @@
             }
         }
 
-        /* --- Sections --- */
         #countdown-section {
             width: 90%;
             transition: opacity 1s ease;
@@ -88,8 +90,8 @@
         }
 
         .circle {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.3);
+            border: 2px solid white;
             border-radius: 50%;
             width: clamp(70px, 18vw, 100px);
             height: clamp(70px, 18vw, 100px);
@@ -97,6 +99,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            backdrop-filter: blur(5px);
         }
 
         .number {
@@ -155,8 +158,8 @@
 
         .happy-text {
             font-size: clamp(3rem, 12vw, 5.5rem);
-            color: var(--accent-pink);
-            text-shadow: 3px 3px 0px #fff, 5px 5px 0px rgba(0, 0, 0, 0.1);
+            color: rgb(96, 91, 91);
+            text-shadow: 3px 3px 0px var(--accent-pink), 6px 6px 0px var(--accent-blue);
             margin: 0;
             line-height: 0.9;
         }
@@ -164,11 +167,11 @@
         .date-container {
             margin-top: 15px;
             display: inline-block;
-            background-color: var(--accent-pink);
+            background-color: var(--accent-blue);
             color: white;
             padding: 8px 25px;
             border-radius: 50px;
-            border: 2px solid #000;
+            border: 2px solid white;
             font-weight: bold;
             font-size: clamp(1rem, 4vw, 1.4rem);
             opacity: 0;
@@ -179,18 +182,17 @@
         .note-btn {
             margin-top: 20px;
             display: block;
-            background-color: #ff4d6d;
+            background-color: var(--accent-blue);
             color: white;
             padding: 10px 25px;
             border-radius: 50px;
-            border: 3px solid #000;
+            border: 2px solid white;
             font-weight: bold;
             font-size: clamp(0.9rem, 3.5vw, 1.2rem);
             cursor: pointer;
             opacity: 0;
             transition: all 0.5s ease;
-            margin-left: auto;
-            margin-right: auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .balloon-container {
@@ -246,10 +248,16 @@
             background: white;
             padding: clamp(20px, 5vw, 40px);
             border-radius: 20px;
-            border: 4px solid var(--accent-pink);
+            border: 4px solid var(--accent-blue);
             width: 80%;
             max-width: 400px;
             position: relative;
+            color: var(--text-color);
+        }
+
+        .note-btn:hover {
+            transform: scale(1.05);
+            background-color: var(--accent-blue);
         }
 
         .show-decor .banner {
